@@ -1,2 +1,2 @@
 # drifty-drifty-game
-first game ever, in history. an attempt to enter drifty jam v5
+made for the sole purpose of learning git, collaborating, and making games.
