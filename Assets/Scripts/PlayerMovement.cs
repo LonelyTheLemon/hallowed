@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         
         //player speed
-        float speed = 12f;
+        float speed = 6f;
        
         //Crouch code
         if(Input.GetKey(KeyCode.LeftControl))
@@ -50,20 +50,12 @@ public class PlayerMovement : MonoBehaviour
         }else{
             playerHeight.height = normalHeight;
         }
- 
-        //sprint code
+        controller.Move(move * speed * Time.deltaTime);
+
+        //Sprint code
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            speed *=1.5f;
-        }
-        
-        //Shift and crouch check
-        if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift))
-        {
-            speed *= 0.5f;
-            playerHeight.height = crouchHeight;
-        }else{
-            playerHeight.height = normalHeight;
+            speed *=2f;
         }
         controller.Move(move * speed * Time.deltaTime);
 
