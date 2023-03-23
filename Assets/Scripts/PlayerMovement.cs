@@ -4,10 +4,9 @@ using UnityEngine;
  
 public class PlayerMovement : MonoBehaviour
 {
-   //Public Variables 
    public CharacterController controller;
    public CharacterController playerHeight;
-   //for speed de bugging - public float speed = 12f;
+   //for speed debugging - public float speed = 12f;
    public float gravity = -65f;
    public float jumpHeight = 3f;
    public float normalHeight, crouchHeight;
@@ -17,18 +16,17 @@ public class PlayerMovement : MonoBehaviour
    public float groundDistance = 0.4f;
    public LayerMask groundMask;
     
-   //Bool and velocity Variables
    Vector3 velocity;
    bool isGrounded;
  
  
    void Update()
    {
-        //Ground Check
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); //Ground Check
  
-        //Player grounded velocity / limiter
-        if(isGrounded && velocity.y < 0)
+        
+        if(isGrounded && velocity.y < 0) //Player grounded velocity / limiter
         {
             velocity.y = -2f;
         }
@@ -39,11 +37,11 @@ public class PlayerMovement : MonoBehaviour
  
         Vector3 move = transform.right * x + transform.forward * z;
         
-        //player speed
-        float speed = 6f;
+        
+        float speed = 6f; //player speed
        
-        //Crouch code
-        if(Input.GetKey(KeyCode.LeftControl))
+        
+        if(Input.GetKey(KeyCode.LeftControl)) //Crouch code
         {
             speed *= 0.5f;
             playerHeight.height = crouchHeight;
@@ -52,22 +50,22 @@ public class PlayerMovement : MonoBehaviour
         }
         controller.Move(move * speed * Time.deltaTime);
 
-        //Sprint code
-        if(Input.GetKey(KeyCode.LeftShift))
+        
+        if(Input.GetKey(KeyCode.LeftShift)) //Sprint code
         {
             speed *=2f;
         }
         controller.Move(move * speed * Time.deltaTime);
 
-        //jump code
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        
+        if(Input.GetButtonDown("Jump") && isGrounded) //jump code
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         
-        //equations for jumping 
-        velocity.y += gravity * Time.deltaTime;
+        
+        velocity.y += gravity * Time.deltaTime; //equations for jumping 
  
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime); //movement controller
    }
 }
