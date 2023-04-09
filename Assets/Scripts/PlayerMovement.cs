@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
    public CharacterController controller;
    public CharacterController playerHeight;
    //for speed debugging - public float speed = 12f;
-   public float gravity = -65f;
+   public float gravity = -75f;
    public float jumpHeight = 3f;
    public float normalHeight, crouchHeight;
    
@@ -22,11 +22,11 @@ public class PlayerMovement : MonoBehaviour
  
    void Update()
    {
-        
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); //Ground Check
+        //Ground Check
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); 
  
-        
-        if(isGrounded && velocity.y < 0) //Player grounded velocity / limiter
+        //Player grounded velocity / limiter
+        if(isGrounded && velocity.y < 0) 
         {
             velocity.y = -2f;
         }
@@ -37,35 +37,35 @@ public class PlayerMovement : MonoBehaviour
  
         Vector3 move = transform.right * x + transform.forward * z;
         
-        
-        float speed = 6f; //player speed
+        //player speed
+        float speed = 4f; 
        
-        
-        if(Input.GetKey(KeyCode.LeftControl)) //Crouch code
+        //Crouch code
+        if(Input.GetKey(KeyCode.LeftControl)) 
         {
-            speed *= 0.5f;
+            speed *= 0.4f;
             playerHeight.height = crouchHeight;
         }else{
             playerHeight.height = normalHeight;
         }
         controller.Move(move * speed * Time.deltaTime);
 
-        
-        if(Input.GetKey(KeyCode.LeftShift)) //Sprint code
+        //Sprint code
+        if(Input.GetKey(KeyCode.LeftShift)) 
         {
-            speed *=2f;
+            speed *=3f;
         }
         controller.Move(move * speed * Time.deltaTime);
 
-        
-        if(Input.GetButtonDown("Jump") && isGrounded) //jump code
+        //jump code
+        if(Input.GetButtonDown("Jump") && isGrounded) 
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         
-        
-        velocity.y += gravity * Time.deltaTime; //equations for jumping 
- 
-        controller.Move(velocity * Time.deltaTime); //movement controller
+        //equations for jumping 
+        velocity.y += gravity * Time.deltaTime; 
+        //movement controller
+        controller.Move(velocity * Time.deltaTime); 
    }
 }
