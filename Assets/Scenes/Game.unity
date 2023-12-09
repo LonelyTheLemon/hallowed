@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 537298441}
   - component: {fileID: 537298440}
   - component: {fileID: 537298439}
+  - component: {fileID: 537298443}
   m_Layer: 0
   m_Name: TODO_House
   m_TagString: Untagged
@@ -298,6 +299,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &537298443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537298438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f99145f9bfdf3ac189cb72201f8eed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &803636453
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c15bece90fa4f7293f7ed27c7fe3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 10000
   playerBody: {fileID: 1229944405}
 --- !u!81 &803636456
 AudioListener:
