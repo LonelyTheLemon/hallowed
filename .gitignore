@@ -1,7 +1,13 @@
-# This .gitignore file should be placed at the root of your Unity project directory
-#
-# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-#
+#### Project ignores ####
+
+# Isolate user settings
+/[Aa]ssets/config/
+/[Aa]ssets/config.meta
+
+# Mac-generated folder metadata
+.DS_Store
+
+#### Base ignores ####
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -71,9 +77,3 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-
-#### FOR PROJECT ####
-
-# Isolate user settings
-/[Aa]ssets/config/
-/[Aa]ssets/config.meta
