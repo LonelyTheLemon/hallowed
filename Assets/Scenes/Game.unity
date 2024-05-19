@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 1229944399}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 108.2, y: 10.05, z: 83.5}
+  m_LocalPosition: {x: 87.27, y: 10.05, z: 91.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 1965703538}
   - component: {fileID: 1965703542}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,7 +877,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -942,7 +942,7 @@ Transform:
   m_GameObject: {fileID: 1965703536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.1, y: 3.22, z: 95}
+  m_LocalPosition: {x: 78.73, y: 0.72, z: 103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1965703536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407cad66b77738005868b57e13acd454, type: 3}
+  m_Script: {fileID: 11500000, guid: bf9806fd033a2abfd9d2130458f0b9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2078154287
