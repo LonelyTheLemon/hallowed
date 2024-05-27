@@ -3,7 +3,7 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
     //mouse speed
-    public static float mouseSensitivity = 100f;
+    public float mouseSensitivity = 100f;
     public Transform playerBody;
  
     float xRotation = 0f;
