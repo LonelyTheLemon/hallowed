@@ -1,28 +1,34 @@
 using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable {
-    private bool open = false;
-    private bool unlocked = false;
+    bool open = false;
+    bool unlocked = false;
+    Vector3 rotation = Vector3.zero;
+    float targetRotation = 0f;
+    float turnSpeed = 100f;
     
-    private void Start() {
+    void Start() {
         Key.KeyCollectEvent += Unlock;
     }
     
-    public void Unlock() {
+    void Update() {
+        // this animates the door
+        if(open) {
+            targetRotation = -95;
+        } else {
+            targetRotation = 0f;
+        }
+        rotation.y = Mathf.MoveTowards(rotation.y, targetRotation, turnSpeed * Time.deltaTime);
+        transform.localRotation = Quaternion.Euler(rotation);
+    }
+    
+    // This function subscribes to KeyCollectEvent
+    void Unlock() {
         unlocked = true;
     }
 
     public void Interact() {
-        // is locked until player picks up key
-        if(!unlocked)
-            return;
-        Vector3 rotation = Vector3.zero;
-        if(open) {
-            rotation.y = 0;
-        } else {
-            rotation.y = -90;
-        }
-        transform.localRotation = Quaternion.Euler(rotation);
-        open = !open;
+        if(unlocked)
+            open = !open;
     }
 }
