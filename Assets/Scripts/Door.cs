@@ -5,7 +5,7 @@ public class Door : MonoBehaviour, IInteractable {
     private bool unlocked = false;
     
     private void Start() {
-        Key.keyCollect += Unlock;
+        Key.KeyCollectEvent += Unlock;
     }
     
     public void Unlock() {

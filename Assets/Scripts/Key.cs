@@ -2,10 +2,10 @@ using UnityEngine;
 using System;
 
 public class Key : MonoBehaviour, IInteractable {
-    public static event Action keyCollect;
+    public static event Action KeyCollectEvent;
     
     public void Interact() {
-        keyCollect?.Invoke();
+        KeyCollectEvent?.Invoke();
         Destroy(this.gameObject);
     }
 }
