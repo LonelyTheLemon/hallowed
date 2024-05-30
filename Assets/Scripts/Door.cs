@@ -1,13 +1,15 @@
 using UnityEngine;
 
-public class Door : MonoBehaviour, IInteractable {
+public class Door : MonoBehaviour, IInteractable, ITooltip {
+    [SerializeField] string tooltip = "Door";
+    public string Tooltip => tooltip;
     bool open = false;
     bool unlocked = false;
     Vector3 rotation = Vector3.zero;
     float targetRotation = 0f;
     float turnSpeed = 100f;
     
-    void Start() {
+    void OnEnable() {
         Key.KeyCollectEvent += Unlock;
     }
     
