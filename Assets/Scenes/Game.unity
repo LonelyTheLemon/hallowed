@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.16981131, g: 0.13056247, b: 0.13056247, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.02
+  m_FogDensity: 0.04
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.053844776, g: 0.06599323, b: 0.09433961, a: 1}
@@ -177,7 +177,7 @@ Terrain:
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 9b710b187a430b38e9047d763d295f22, type: 2}
   m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
+  m_TreeBillboardDistance: 2000
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
@@ -264,7 +264,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.8490566, g: 0.7012978, b: 0.46858314, a: 1}
-  m_Intensity: 1.3
+  m_Intensity: 1.5
   m_Range: 30
   m_SpotAngle: 60
   m_InnerSpotAngle: 1
@@ -5942,7 +5942,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.05175689, g: 0.020291913, b: 0.2264151, a: 1}
+  m_Color: {r: 0.03158153, g: 0.020425422, b: 0.16037738, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
