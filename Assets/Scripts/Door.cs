@@ -8,6 +8,7 @@ public class Door : MonoBehaviour, IInteractable, ITooltip {
     Vector3 rotation = Vector3.zero;
     float targetRotation = 0f;
     float turnSpeed = 100f;
+    public AudioSource OpenSound;
     
     void OnEnable() {
         Key.KeyCollectEvent += Unlock;
@@ -30,7 +31,9 @@ public class Door : MonoBehaviour, IInteractable, ITooltip {
     }
 
     public void Interact() {
-        if(unlocked)
+        if(unlocked) {
             open = !open;
+            OpenSound.Play();
+        }
     }
 }
