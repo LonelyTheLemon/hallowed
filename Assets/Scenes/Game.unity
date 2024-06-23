@@ -6279,6 +6279,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: spread
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: colorBits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: downSamples
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: ditherShader
+      value: 
+      objectReference: {fileID: 4800000, guid: b8eef21aa6a425dddb427fac22f75774, type: 3}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: redColorCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: blueColorCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: greenColorCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304973076138027279, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: pointFilterDown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3533381965924490136, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: fogOffset
       value: 5
@@ -6294,6 +6330,14 @@ PrefabInstance:
     - target: {fileID: 4276325647620692211, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236369050338614653, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236369050338614653, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: downSamples
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
