@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6156291544652684080}
   - component: {fileID: 4163093755655241137}
   - component: {fileID: 1290505519814068472}
+  - component: {fileID: 3533381965924490136}
+  - component: {fileID: 5236369050338614653}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -45,7 +47,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.011764706, g: 0.011764706, b: 0.019607844, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -76,7 +78,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 30eebc7f5d55a5f66813283fdb9dab75, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -121,6 +123,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 5
+--- !u!114 &3533381965924490136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091390258416098302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7926f7d3a681dcdedb0caa013021661c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fogShader: {fileID: 4800000, guid: fceeeb5bf17023e58adb3788c311cff8, type: 3}
+  fogColor: {r: 0.011764706, g: 0.011764706, b: 0.019607844, a: 0}
+  fogDensity: 0.05
+  fogOffset: 0
+--- !u!114 &5236369050338614653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091390258416098302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc05abb3d48bb5fe3ba44fac453f4836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pixelArtFilter: {fileID: 4800000, guid: 680ee5f1081109b5396853844c50cd06, type: 3}
+  downSamples: 3
 --- !u!1 &4276325647620692211
 GameObject:
   m_ObjectHideFlags: 0
