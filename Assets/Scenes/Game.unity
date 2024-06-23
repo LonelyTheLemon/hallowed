@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.09433961, g: 0.032484863, b: 0.04141124, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.04
@@ -6241,19 +6241,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 87.27
+      value: 84.31
       objectReference: {fileID: 0}
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.05
+      value: 1.854
       objectReference: {fileID: 0}
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 91.57
+      value: 6.102
       objectReference: {fileID: 0}
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9718277
       objectReference: {fileID: 0}
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6261,7 +6261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.23569256
       objectReference: {fileID: 0}
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -6273,7 +6273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 27.265
       objectReference: {fileID: 0}
     - target: {fileID: 894152769009215725, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -6835,7 +6835,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.013943266, g: 0.010323961, b: 0.0754717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -7250,7 +7250,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
