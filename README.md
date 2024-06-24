@@ -6,9 +6,12 @@ This is a short horror game made for the purposes of better learning Unity and l
 ## Controls 
 Movement
 - [W] [A] [S] [D]
+
 Crouching
 - [CTRL]
+
 Interaction
 - [E]
+
 Flashlight
 - [F]
