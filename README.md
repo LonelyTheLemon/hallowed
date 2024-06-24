@@ -1,2 +1,14 @@
-# drifty-drifty-game
-made for the sole purpose of learning git, collaborating, and making games.
+# Hallowed
+
+## Description 
+This is a short horror game made for the purposes of better learning Unity and learning the overall process of game development. Insepration for the game is taken from the (2017) movie <em><strong>The Ritual</strong></em>. The end goal when making this game for us is to have an atmospheric horror game that the player can get lost in and will hopefully enjoy.
+
+## Controls 
+Movement
+- [W] [A] [S] [D]
+Crouching
+- [CTRL]
+Interaction
+- [E]
+Flashlight
+- [F]
