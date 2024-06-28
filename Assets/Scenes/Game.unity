@@ -8570,7 +8570,10 @@ Transform:
   m_PrefabInstance: {fileID: 1594706533}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 481d172 (Reapply "unfinished pause menu (small bug)")
 <<<<<<< Updated upstream
 --- !u!1 &1257873197
 GameObject:
@@ -8625,7 +8628,10 @@ GameObject:
   m_PrefabInstance: {fileID: 898239043}
   m_PrefabAsset: {fileID: 0}
 >>>>>>> Stashed changes
+<<<<<<< HEAD
 >>>>>>> 3853af3 (unfinished pause menu (small bug))
+=======
+>>>>>>> 481d172 (Reapply "unfinished pause menu (small bug)")
 --- !u!1 &1319326446
 GameObject:
   m_ObjectHideFlags: 0
