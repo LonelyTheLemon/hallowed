@@ -54,15 +54,9 @@ public class PlayerMovement : MonoBehaviour
             speed *=3f;
         }
         controller.Move(move * speed * Time.deltaTime);
-
-        // //jump code
-        // if(Input.GetButtonDown("Jump") && isGrounded) 
-        // {
-        //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        // }
         
-        // //equations for jumping 
-        // velocity.y += gravity * Time.deltaTime; 
+        // ground the player
+        velocity.y += gravity * Time.deltaTime; 
         //movement controller
         controller.Move(velocity * Time.deltaTime); 
    }
