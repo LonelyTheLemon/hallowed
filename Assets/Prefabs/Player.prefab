@@ -123,7 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78262b289a2d282ec8daa9113c15c994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  rayRange: 5
+  rayIgnoreMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &3533381965924490136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +189,7 @@ GameObject:
   - component: {fileID: 4197858757463714586}
   - component: {fileID: 3652439584272604899}
   - component: {fileID: 7242752479125188976}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

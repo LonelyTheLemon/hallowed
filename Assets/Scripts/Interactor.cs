@@ -11,7 +11,9 @@ interface ITooltip {
 
 public class Interactor : MonoBehaviour {
     [SerializeField, Range(1, 20)]
-    float range;
+    float rayDistance = 5;
+    [SerializeField]
+    LayerMask rayIgnoreMask;
 
     public static event Action<GameObject> NewInteractableObject;
     GameObject hitObject = null;
@@ -25,7 +27,7 @@ public class Interactor : MonoBehaviour {
     void Update() {
         // normal ray cast
         Ray ray = new Ray(transform.position, transform.forward);
-        if(Physics.Raycast(ray, out RaycastHit rayHit, range)) {
+        if(Physics.Raycast(ray, out RaycastHit rayHit, rayDistance, ~rayIgnoreMask)) {
             newHitObject = rayHit.collider.gameObject;
         } else {
             newHitObject = null;
