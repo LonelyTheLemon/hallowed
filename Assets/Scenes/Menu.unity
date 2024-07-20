@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029589007, g: 0.039199397, b: 0.04807352, a: 1}
+  m_IndirectSpecularColor: {r: 0.0295824, g: 0.03918161, b: 0.048119105, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6737,6 +6737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 966960343}
   - component: {fileID: 966960344}
+  - component: {fileID: 966960345}
   m_Layer: 5
   m_Name: MusicVolume
   m_TagString: Untagged
@@ -6830,6 +6831,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &966960345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966960342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3e374447fdbe54bb790efe0f62ee3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 966960344}
+  sliderPrefsKey: SliderValue
+  sliderData: {fileID: 11400000, guid: c05beddb95257d847962fa98de4a1d03, type: 2}
 --- !u!1 &968994648
 GameObject:
   m_ObjectHideFlags: 0
@@ -12465,6 +12481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646812781}
   - component: {fileID: 1646812782}
+  - component: {fileID: 1646812783}
   m_Layer: 5
   m_Name: GameVolume
   m_TagString: Untagged
@@ -12558,6 +12575,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1646812783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646812780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3e374447fdbe54bb790efe0f62ee3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1646812782}
+  sliderPrefsKey: SliderValue
+  sliderData: {fileID: 11400000, guid: c05beddb95257d847962fa98de4a1d03, type: 2}
 --- !u!1 &1672089807
 GameObject:
   m_ObjectHideFlags: 0
@@ -13245,7 +13277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333204131514478360, guid: f596a96fe7ffe5e4186b49e078abfc6b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7623968127354360545, guid: f596a96fe7ffe5e4186b49e078abfc6b, type: 3}
       propertyPath: m_LocalPosition.x
