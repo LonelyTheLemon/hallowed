@@ -6845,7 +6845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 966960344}
   sliderPrefsKey: SliderValue
-  sliderData: {fileID: 11400000, guid: c05beddb95257d847962fa98de4a1d03, type: 2}
+  sliderData: {fileID: 11400000, guid: 307f05ec4ed39fc4fb4ba133c84133ac, type: 2}
 --- !u!1 &968994648
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,12 +36,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         
         //player speed
-        float speed = 4f; 
+        float speed = 2.5f; 
        
         //Crouch code
         if(Input.GetKey(KeyCode.LeftControl)) 
         {
-            speed *= 0.4f;
+            speed *= 0.3f;
             playerHeight.height = crouchHeight;
         }else{
             playerHeight.height = normalHeight;
