@@ -11,9 +11,9 @@ public class SliderValuePersistence : MonoBehaviour
     public string MusicSliderPrefsKey = "MusicSliderValue";
     public SliderData MusicSliderData;
 
-    public Slider SensitivitySlider;
-    public string SensitivitySliderPrefsKey = "SensitivitySliderValue";
-    public SliderData SensitivitySliderData;
+    // public Slider SensitivitySlider;
+    // public string SensitivitySliderPrefsKey = "SensitivitySliderValue";
+    // public SliderData SensitivitySliderData;
 
     private void Start()
     {
@@ -23,8 +23,8 @@ public class SliderValuePersistence : MonoBehaviour
         LoadSliderValue(MusicSlider, MusicSliderPrefsKey, MusicSliderData);
         MusicSlider.onValueChanged.AddListener(value => UpdateSliderValue(value, MusicSliderPrefsKey, MusicSliderData));
 
-        LoadSliderValue(SensitivitySlider, SensitivitySliderPrefsKey, SensitivitySliderData);
-        SensitivitySlider.onValueChanged.AddListener(value => UpdateSliderValue(value, SensitivitySliderPrefsKey, SensitivitySliderData));
+        // LoadSliderValue(SensitivitySlider, SensitivitySliderPrefsKey, SensitivitySliderData);
+        // SensitivitySlider.onValueChanged.AddListener(value => UpdateSliderValue(value, SensitivitySliderPrefsKey, SensitivitySliderData));
     }
 
     private void LoadSliderValue(Slider slider, string prefsKey, SliderData sliderData)

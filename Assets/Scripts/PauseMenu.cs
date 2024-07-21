@@ -7,13 +7,18 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject optionsMenuUI; // Reference to the options menu UI
     public GameObject mouseLookScriptObject;
-    
-    private void Update ()
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (optionsMenuUI.activeSelf)
+            {
+                CloseOptionsMenu();
+            }
+            else if (GameIsPaused)
             {
                 Resume();
             }
@@ -23,31 +28,43 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-    
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        // Time.timeScale = 1f;
         GameIsPaused = false;
         EnableMouseLookScript();
     }
+
     void Pause()
     {
         pauseMenuUI.SetActive(true);
-        // Time.timeScale = 0f;
         DisableMouseLookScript();
         GameIsPaused = true;
     }
+
     public void LoadMenu()
     {
-        // Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         GameIsPaused = false;
     }
+
     public void Quit()
     {
         Application.Quit();
         Debug.Log("Player has Quit the game");
+    }
+
+    public void OpenOptionsMenu()
+    {
+        optionsMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
+    }
+
+    public void CloseOptionsMenu()
+    {
+        optionsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 
     private void EnableMouseLookScript()
