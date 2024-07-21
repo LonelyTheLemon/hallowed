@@ -9,10 +9,20 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI; // Reference to the options menu UI
     public GameObject mouseLookScriptObject;
+    
+    KeyCode pauseKey = KeyCode.None;
+    
+    void Start() {
+        #if UNITY_EDITOR
+        pauseKey = KeyCode.BackQuote;
+        #else
+        pauseKey = KeyCode.Escape;
+        #endif
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(pauseKey))
         {
             if (optionsMenuUI.activeSelf)
             {
