@@ -1,19 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
     //mouse sensitivity function 
-    public float mouseSensitivity = 100f;
+    private float mouseSensitivity = 50f;
     public Transform playerBody;
 
     private float xRotation = 0f;
     private bool isScriptEnabled = true;
 
+    //used to control mouse sens in game using a slider
+    public Slider Sensitivity;
+
     //changeable cursor lock state
     private void Start()
     {
+        mouseSensitivity = PlayerPrefs.GetFloat("current Sensitivity", 50);
+        Sensitivity.value = mouseSensitivity / 20;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -27,6 +33,7 @@ public class MouseLook : MonoBehaviour
         //mouse x and y axis movement
         if (isScriptEnabled)
         {
+            PlayerPrefs.SetFloat("Current Sensitivity", mouseSensitivity);
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -37,6 +44,11 @@ public class MouseLook : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }
     }
+    public void AdjustSpeed(float newSpeed)
+    {
+        mouseSensitivity = newSpeed * 20;
+    }
+
     //manages lock states and script enabling 
     private void ToggleScriptEnabledState()
     {
