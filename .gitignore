@@ -4,6 +4,10 @@
 /[Aa]ssets/config/
 /[Aa]ssets/config.meta
 
+# Personal Unity scene for testing
+Personal.unity
+Personal.unity.meta
+
 # Mac-generated folder metadata
 .DS_Store
 
