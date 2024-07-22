@@ -7129,9 +7129,6 @@ MonoBehaviour:
   MusicSlider: {fileID: 966960344}
   MusicSliderPrefsKey: MusicSliderValue
   MusicSliderData: {fileID: 11400000, guid: 307f05ec4ed39fc4fb4ba133c84133ac, type: 2}
-  SensitivitySlider: {fileID: 0}
-  SensitivitySliderPrefsKey: SensitivitySliderValue
-  SensitivitySliderData: {fileID: 11400000, guid: 49f82a343efa7ed49b516e550d9e58be, type: 2}
 --- !u!1 &968994648
 GameObject:
   m_ObjectHideFlags: 0
@@ -8299,14 +8296,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -13757,9 +13754,6 @@ MonoBehaviour:
   MusicSlider: {fileID: 966960344}
   MusicSliderPrefsKey: MusicSliderValue
   MusicSliderData: {fileID: 11400000, guid: 307f05ec4ed39fc4fb4ba133c84133ac, type: 2}
-  SensitivitySlider: {fileID: 0}
-  SensitivitySliderPrefsKey: SensitivitySliderValue
-  SensitivitySliderData: {fileID: 11400000, guid: 49f82a343efa7ed49b516e550d9e58be, type: 2}
 --- !u!1 &1672089807
 GameObject:
   m_ObjectHideFlags: 0
