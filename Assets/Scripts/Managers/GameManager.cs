@@ -1,21 +1,18 @@
 using UnityEngine;
-using System;
 
 public class GameManager : MonoBehaviour {
-    // This section of GameManager acts as an event relay.
-    // We technically don't need this middleman but it's
-    // extremely useful for clarity and keeping track
-    public static event Action AfterSleepPhaseSignal;
     
     void Start() {
         setLightNight();
 
-        // Any function that subscribes to AfterSleepPhaseSignal will be triggered
-        // if SleepPhaseTrigger is called from Bed
-        Bed.AfterSleepPhaseTrigger += AfterSleepPhaseSignal;
-        Bed.AfterSleepPhaseTrigger += setLightDay;
+        Bed.AfterSleepPhaseTrigger += setAfterSleepAmbience;
     }
     
+    void setAfterSleepAmbience() {
+        disableAmbientNight();
+        setLightDay();
+    }
+
     // TODO: Move into proper light manager
     Color nightColor = new Color(3 / 255, 3 / 255, 5 / 255, 1);
     Color dayColor = new Color(1, 1, 1, 1);
@@ -36,6 +33,14 @@ public class GameManager : MonoBehaviour {
             if(light != null) {
                 light.color = dayColor;
             }
+        }
+    }
+    
+    [SerializeField] Transform[] sleepDisableSoundObjects;
+    
+    void disableAmbientNight() {
+        foreach(Transform ambientObject in sleepDisableSoundObjects) {
+            ambientObject.gameObject.SetActive(false);
         }
     }
 }

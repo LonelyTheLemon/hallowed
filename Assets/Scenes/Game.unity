@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0295824, g: 0.03918161, b: 0.048119105, a: 1}
+  m_IndirectSpecularColor: {r: 0.029589007, g: 0.039199397, b: 0.04807352, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7943,6 +7943,22 @@ PrefabInstance:
       propertyPath: fogDensity
       value: 0.08
       objectReference: {fileID: 0}
+    - target: {fileID: 3533381965924490136, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: fogDayColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533381965924490136, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: fogDayColor.b
+      value: 0.05490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533381965924490136, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: fogDayColor.g
+      value: 0.05490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533381965924490136, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
+      propertyPath: fogDayColor.r
+      value: 0.05490196
+      objectReference: {fileID: 0}
     - target: {fileID: 4163093755655241137, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
       propertyPath: Sensitivity
       value: 
@@ -9141,6 +9157,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightObjects:
   - {fileID: 1319326448}
+  sleepDisableSoundObjects:
+  - {fileID: 2081122920}
+  - {fileID: 344412200}
+  - {fileID: 869156839}
+  - {fileID: 337970886}
+  - {fileID: 995011836}
+  - {fileID: 1081087927}
+  - {fileID: 697765039}
+  - {fileID: 861454818}
 --- !u!4 &1257873199
 Transform:
   m_ObjectHideFlags: 0

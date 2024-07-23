@@ -5,6 +5,7 @@ public class Fog : MonoBehaviour {
     [Header("Fog")]
     public Shader fogShader;
     public Color fogColor;
+    public Color fogDayColor;
     
     [Range(0.0f, 1.0f)]
     public float fogDensity;
@@ -22,6 +23,9 @@ public class Fog : MonoBehaviour {
 
         Camera cam = GetComponent<Camera>();
         cam.depthTextureMode = cam.depthTextureMode | DepthTextureMode.Depth;
+        
+        // hook itself up to bed trigger
+        Bed.AfterSleepPhaseTrigger += setFogDay;
     }
 
     [ImageEffectOpaque]
@@ -30,5 +34,10 @@ public class Fog : MonoBehaviour {
         fogMat.SetFloat("_FogDensity", fogDensity);
         fogMat.SetFloat("_FogOffset", fogOffset);
         Graphics.Blit(source, destination, fogMat);
+    }
+    
+    void setFogDay() {
+        Debug.Log("Fog color set");
+        fogColor = fogDayColor;
     }
 }
