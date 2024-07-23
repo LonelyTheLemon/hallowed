@@ -17,7 +17,6 @@ public class Interactor : MonoBehaviour {
 
     public static event Action<GameObject> NewInteractableObject;
     GameObject hitObject = null;
-    GameObject newHitObject = null;
 
     void Start() {
         // start the game as not perceiving any object
@@ -28,24 +27,19 @@ public class Interactor : MonoBehaviour {
         // normal ray cast
         Ray ray = new Ray(transform.position, transform.forward);
         if(Physics.Raycast(ray, out RaycastHit rayHit, rayDistance, ~rayIgnoreMask)) {
-            newHitObject = rayHit.collider.gameObject;
+            hitObject = rayHit.collider.gameObject;
         } else {
-            newHitObject = null;
-        }
-        
-        // invokes event when the perceived object changes
-        if(newHitObject != hitObject) {
-            NewInteractableObject?.Invoke(newHitObject);
+            hitObject = null;
         }
         
         // allows interacting with objects
         if(Input.GetKeyDown(KeyCode.E)) {
-            if(newHitObject && newHitObject.TryGetComponent(out IInteractable interactable)) {
+            if(hitObject && hitObject.TryGetComponent(out IInteractable interactable)) {
                 interactable.Interact();
             }
         }
         
-        // new hit object becomes old in the next frame
-        hitObject = newHitObject;
+        // invokes on perceived object
+        NewInteractableObject?.Invoke(hitObject);
     }
 }
