@@ -9,7 +9,7 @@ public class Key : MonoBehaviour, IInteractable, ITooltip {
     
     public void Interact() {
         KeyCollectEvent?.Invoke();
-        Destroy(this.gameObject);
         Grabbed.Play();
+        gameObject.SetActive(false);
     }
 }
