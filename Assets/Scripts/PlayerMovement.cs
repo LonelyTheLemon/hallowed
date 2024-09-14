@@ -2,38 +2,46 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public CharacterController playerHeight;
+    [SerializeField] CharacterController controller;
 
-    public float gravity = -75f;
-    public float jumpHeight = 3f;
-    public float normalHeight, crouchHeight;
+    [SerializeField] float gravity = -75f;
+    [SerializeField] float jumpHeight = 3f;
+    [SerializeField] float normalHeight, crouchHeight;
 
     // Variables for ground check
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float groundDistance = 0.4f;
+    [SerializeField] LayerMask groundMask;
 
-    public LayerMask Ground; // Layer for first type of ground
-    public LayerMask CabinGround; // Layer for second type of ground
+    // [SerializeField] LayerMask Ground; // Layer for first type of ground
+    // [SerializeField] LayerMask CabinGround; // Layer for second type of ground
 
-    public AudioSource audioSource;  // Reference to the AudioSource component
-    public AudioClip Outside;  // Sound for the first layer
-    public AudioClip Cabin;  // Sound for the second layer
+    [SerializeField] AudioSource audioSource;  // Reference to the AudioSource component
+    [SerializeField] AudioSource audioBuffer;
+    bool audioFlip = false; // used for alternating between original audio source and buffer
+    [SerializeField] AudioClip footstepOutside;  // Sound for the first layer
+    [SerializeField] AudioClip footstepInside;  // Sound for the second layer
+    
+    float walkStepInterval = 1f;
+    float walkStepProgress = 0;
 
-    public float walkPitch = 1f;   // Normal walking pitch
-    public float sprintPitch = 1.5f; // Sprinting pitch
+    [SerializeField] float walkPitch = 1f;   // Normal walking pitch
+    [SerializeField] float sprintPitch = 1.5f; // Sprinting pitch
 
     Vector3 velocity;
     bool isGrounded;
+    int groundLayer;
 
     bool isMoving = false;  // To track if the player is moving
+    bool isSprinting = false;
     float currentSpeed = 2.5f;  // Player's current speed
+    float sprintSpeedMultiplier = 3f;
 
     void Update()
     {
         // Ground Check
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isSprinting = false;
 
         // Player grounded velocity/limiter
         if (isGrounded && velocity.y < 0)
@@ -54,34 +62,40 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = 2.5f;
 
         // Crouch code
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            currentSpeed *= 1f;
-            playerHeight.height = crouchHeight;
+        if(Input.GetKey(KeyCode.LeftControl)) {
+            controller.height = crouchHeight;
         }
-        else
-        {
-            playerHeight.height = normalHeight;
+        else {
+            controller.height = normalHeight;
         }
 
         // Sprint code
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            currentSpeed *= 3f;
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            currentSpeed *= sprintSpeedMultiplier;
+            isSprinting = true;
         }
 
         // Move the player
         controller.Move(move * currentSpeed * Time.deltaTime);
 
         // Check which layer the player is on and play the corresponding sound
-        if (isGrounded && isMoving)
-        {
-            int layer = GetGroundLayer();
-            PlayFootstepSound(layer);
+        if (isMoving) {
+            groundLayer = GetGroundLayer();
+            if(isSprinting) {
+                walkStepProgress += Time.deltaTime * sprintSpeedMultiplier;
+            }
+            else {
+                walkStepProgress += Time.deltaTime;
+            }
         }
-        else
-        {
-            StopFootstepSound();
+        else {
+            // makes the first step come sooner
+            walkStepProgress = walkStepInterval / 1.5f;
+        }
+        
+        if(walkStepProgress >= walkStepInterval) {
+            PlayFootstepSound();
+            walkStepProgress = 0;
         }
 
         // Apply gravity
@@ -95,48 +109,30 @@ public class PlayerMovement : MonoBehaviour
     int GetGroundLayer()
     {
         RaycastHit hit;
-        if (Physics.Raycast(groundCheck.position, Vector3.down, out hit, groundDistance + 0.1f))
+        if (Physics.Raycast(groundCheck.position, Vector3.down, out hit, 0.2f))
         {
             return hit.collider.gameObject.layer;
         }
         return -1;  // Return -1 if no ground detected
     }
-
-    // Play footstep sound based on the layer and adjust pitch for sprinting
-    void PlayFootstepSound(int layer)
-    {
-        if (!audioSource.isPlaying)
-        {
-            if (layer == LayerMask.NameToLayer("Ground")) 
-            {
-                audioSource.clip = Outside;
-            }
-            else if (layer == LayerMask.NameToLayer("CabinGround")) 
-            {
-                audioSource.clip = Cabin;
-            }
-
-            audioSource.loop = true;  // Loop the sound while moving
-            audioSource.Play();
-        }
-
-        // Adjust pitch for sprinting
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            audioSource.pitch = sprintPitch;  // Increase pitch for sprinting
-        }
-        else
-        {
-            audioSource.pitch = walkPitch;  // Normal pitch for walking
-        }
-    }
-
     
-    void StopFootstepSound()
-    {
-        if (audioSource.isPlaying)
-        {
-            audioSource.Pause();  // Pause the sound when the player stops
+    void PlayFootstepSound() {
+        if (groundLayer == LayerMask.NameToLayer("Ground")) {
+            audioSource.clip = footstepOutside;
+            audioBuffer.clip = footstepOutside;
+        }
+        else if (groundLayer == LayerMask.NameToLayer("CabinGround")) {
+            audioSource.clip = footstepInside;
+            audioBuffer.clip = footstepInside;
+        }
+        
+        if(audioFlip) {
+            audioSource.Play();
+            audioFlip = !audioFlip;
+        }
+        else {
+            audioBuffer.Play();
+            audioFlip = !audioFlip;
         }
     }
 }
