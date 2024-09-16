@@ -8813,6 +8813,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 266618978}
   optionsMenuUI: {fileID: 627148423}
   mouseLookScriptObject: {fileID: 898239044}
+  mouseSensitivitySlider: {fileID: 1703461814}
 --- !u!1 &995011835
 GameObject:
   m_ObjectHideFlags: 0
@@ -11350,7 +11351,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1703461812}
   - component: {fileID: 1703461814}
-  - component: {fileID: 1703461815}
   m_Layer: 5
   m_Name: Sensitivity
   m_TagString: Untagged
@@ -11444,21 +11444,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1703461815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703461811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e6fd55307909d4cabfbbdbabafab28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SensitivitySlider: {fileID: 1703461814}
-  SensitivitySliderPrefsKey: SensitivitySliderValue
-  SensitivitySliderData: {fileID: 11400000, guid: 49f82a343efa7ed49b516e550d9e58be, type: 2}
 --- !u!1 &1784222996
 GameObject:
   m_ObjectHideFlags: 0
