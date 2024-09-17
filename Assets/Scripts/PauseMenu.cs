@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,10 @@ public class PauseMenu : MonoBehaviour {
     PlayerSettings playerSettings = new PlayerSettings();
     
     void Start() {
+        // safeguard for first run
+        if(!File.Exists(Application.persistentDataPath + relativeSettingsPath)) {
+            SaveSettings();
+        }
         // loads player settings and makes slider consistent
         playerSettings = dataService.LoadData<PlayerSettings>(relativeSettingsPath);
         mouseSensitivitySlider.value = playerSettings.mouseSensitivity;
