@@ -11,18 +11,20 @@ public class PauseMenu : MonoBehaviour {
     KeyCode pauseKey = KeyCode.None;
     
     public Slider mouseSensitivitySlider;
-    const string MouseSensitivityKey = "MouseSensitivity";
+    IDataService dataService = new JsonDataService();
+    string relativeSettingsPath = "/player-settings.json";
+    PlayerSettings playerSettings = new PlayerSettings();
     
     void Start() {
+        // loads player settings and makes slider consistent
+        playerSettings = dataService.LoadData<PlayerSettings>(relativeSettingsPath);
+        mouseSensitivitySlider.value = playerSettings.mouseSensitivity;
+
         #if UNITY_EDITOR
         pauseKey = KeyCode.BackQuote;
         #else
         pauseKey = KeyCode.Escape;
         #endif
-
-        // makes slider persistent with player settings
-        LoadSliderValue(mouseSensitivitySlider, MouseSensitivityKey);
-        mouseSensitivitySlider.onValueChanged.AddListener(value => UpdateSliderValue(MouseSensitivityKey, value));
     }
 
     void Update() {
@@ -38,14 +40,12 @@ public class PauseMenu : MonoBehaviour {
             }
         }
     }
-
-    void LoadSliderValue(Slider slider, string prefsKey) {
-        slider.value = PlayerPrefs.GetFloat(prefsKey);
-    }
-
-    public void UpdateSliderValue(string prefsKey, float value) {
-        PlayerPrefs.SetFloat(prefsKey, value);
-        PlayerPrefs.Save();
+    
+    // this only saves mouse sensitivity right now
+    // this is exclusively called by Back button in ui right now
+    public void SaveSettings() {
+        playerSettings.mouseSensitivity = mouseSensitivitySlider.value;
+        dataService.SaveData(relativeSettingsPath, playerSettings);
     }
 
     public void Resume() {
