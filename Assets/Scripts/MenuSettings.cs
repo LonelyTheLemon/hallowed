@@ -9,9 +9,13 @@ public class PauseMenuSettings : MonoBehaviour {
     [SerializeField] Slider mouseSensitivitySlider;
     
     void Start() {
+        // make sliders consistent, then update once, then hook up update
         gameVolumeSlider.value = SaveManager.playerSettings.gameVolume;
         musicVolumeSlider.value = SaveManager.playerSettings.musicVolume;
         mouseSensitivitySlider.value = SaveManager.playerSettings.mouseSensitivity;
+        UpdateGameVolume();
+        UpdateMusicVolume();
+        UpdateMouseSensitivity();
         gameVolumeSlider.onValueChanged.AddListener(_ => UpdateGameVolume());
         musicVolumeSlider.onValueChanged.AddListener(_ => UpdateMusicVolume());
         mouseSensitivitySlider.onValueChanged.AddListener(_ => UpdateMouseSensitivity());

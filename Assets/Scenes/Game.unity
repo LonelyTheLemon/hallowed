@@ -803,6 +803,7 @@ GameObject:
   - component: {fileID: 266618979}
   - component: {fileID: 266618981}
   - component: {fileID: 266618980}
+  - component: {fileID: 266618982}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -871,6 +872,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266618978}
   m_CullTransparentMesh: 1
+--- !u!225 &266618982
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266618978}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &321657199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,6 +1929,7 @@ GameObject:
   - component: {fileID: 627148426}
   - component: {fileID: 627148425}
   - component: {fileID: 627148424}
+  - component: {fileID: 627148429}
   - component: {fileID: 627148428}
   m_Layer: 5
   m_Name: PauseMenuOptions
@@ -2002,6 +2016,18 @@ MonoBehaviour:
   gameVolumeSlider: {fileID: 1679230433}
   musicVolumeSlider: {fileID: 223916862}
   mouseSensitivitySlider: {fileID: 1703461814}
+--- !u!225 &627148429
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627148423}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &644399819
 GameObject:
   m_ObjectHideFlags: 0
@@ -8367,7 +8393,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 991273184}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: SwitchMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8770,9 +8796,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02032c660c5f57443b3c7ce9edf4b60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 266618978}
-  optionsMenuUI: {fileID: 627148423}
   mouseLookScriptObject: {fileID: 898239044}
+  menu: {fileID: 266618982}
+  settingsMenu:
+  - {fileID: 627148429}
+  isGame: 1
 --- !u!1 &995011835
 GameObject:
   m_ObjectHideFlags: 0
@@ -9544,7 +9572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e332f743a5792ce99e2b3dd0ad2b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 1d128119b784e6a4083162518eb48f22, type: 2}
 --- !u!1 &1297227128
 GameObject:
   m_ObjectHideFlags: 0
@@ -10129,10 +10156,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 266618978}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 991273184}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ShowMenuSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10140,18 +10167,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 627148423}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1473114156
 MonoBehaviour:
@@ -12086,10 +12101,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 266618978}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 991273184}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: SwitchMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12097,18 +12112,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 627148423}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1946311865
 MonoBehaviour:

@@ -1,22 +1,14 @@
 using System.IO;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class SaveManager : MonoBehaviour {
-    // TODO: Remove this slop. Make UI enabled on start so we don't have to
-    // put stuff like this here.
-    [SerializeField] AudioMixer audioMixer;
-
     IDataService dataService = new JsonDataService();
     const string RelativeSettingsPath = "player-settings.json";
     public static PlayerSettings playerSettings = new PlayerSettings();
     
-    // load settings from disk
-    void Start() {
+    // load settings before other scripts use it in Start
+    void Awake() {
         playerSettings = LoadSettings();
-        audioMixer.SetFloat("Game", playerSettings.gameVolume);
-        audioMixer.SetFloat("Music", playerSettings.musicVolume);
-        // mouse sensitivity is used by MouseLook so it is not set to anything
     }
     
     // saves settings when changing scenes or quitting
