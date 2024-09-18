@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -10,7 +8,7 @@ public class VolumeSettings : MonoBehaviour
 
     public void SetVolumeGame (float gameVolume)
     {
-        gameSounds.SetFloat("gameVolume", gameVolume);
+        gameSounds.SetFloat("GameVolume", gameVolume);
     }
     
     public void SetVolumeMusic (float musicVolume)
