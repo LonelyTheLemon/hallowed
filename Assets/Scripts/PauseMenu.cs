@@ -1,6 +1,4 @@
-using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
@@ -11,20 +9,7 @@ public class PauseMenu : MonoBehaviour {
     
     KeyCode pauseKey = KeyCode.None;
     
-    public Slider mouseSensitivitySlider;
-    IDataService dataService = new JsonDataService();
-    string relativeSettingsPath = "/player-settings.json";
-    PlayerSettings playerSettings = new PlayerSettings();
-    
     void Start() {
-        // safeguard for first run
-        if(!File.Exists(Application.persistentDataPath + relativeSettingsPath)) {
-            SaveSettings();
-        }
-        // loads player settings and makes slider consistent
-        playerSettings = dataService.LoadData<PlayerSettings>(relativeSettingsPath);
-        mouseSensitivitySlider.value = playerSettings.mouseSensitivity;
-
         #if UNITY_EDITOR
         pauseKey = KeyCode.BackQuote;
         #else
@@ -44,13 +29,6 @@ public class PauseMenu : MonoBehaviour {
                 Pause();
             }
         }
-    }
-    
-    // this only saves mouse sensitivity right now
-    // this is exclusively called by Back button in ui right now
-    public void SaveSettings() {
-        playerSettings.mouseSensitivity = mouseSensitivitySlider.value;
-        dataService.SaveData(relativeSettingsPath, playerSettings);
     }
 
     public void Resume() {
@@ -87,8 +65,7 @@ public class PauseMenu : MonoBehaviour {
 
     void EnableMouseLookScript() {
         MouseLook mouseLookScript = mouseLookScriptObject.GetComponent<MouseLook>();
-        if (mouseLookScript != null)
-        {
+        if (mouseLookScript != null) {
             mouseLookScript.enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -97,8 +74,7 @@ public class PauseMenu : MonoBehaviour {
 
     void DisableMouseLookScript() {
         MouseLook mouseLookScript = mouseLookScriptObject.GetComponent<MouseLook>();
-        if (mouseLookScript != null)
-        {
+        if (mouseLookScript != null) {
             mouseLookScript.enabled = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

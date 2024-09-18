@@ -1,41 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class MouseLook : MonoBehaviour
-{
-    //mouse sensitivity function 
-    private float mouseSensitivity = 50f;
-    public Transform playerBody;
+public class MouseLook : MonoBehaviour {
+    [SerializeField] Transform playerBody;
 
-    private float xRotation = 0f;
-    private bool isScriptEnabled = true;
-
-    //used to control mouse sens in game using a slider
-    public Slider Sensitivity;
+    float xRotation = 0f;
+    bool isScriptEnabled = true;
 
     //changeable cursor lock state
-    private void Start()
-    {
-        mouseSensitivity = PlayerPrefs.GetFloat("current Sensitivity", 50);
-        Sensitivity.value = mouseSensitivity / 20;
+    void Start() {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
-    {
+    void Update() {
         //Escape enables and disables the mouse look script
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             ToggleScriptEnabledState();
         }
         //mouse x and y axis movement
-        if (isScriptEnabled)
-        {
-            PlayerPrefs.SetFloat("Current Sensitivity", mouseSensitivity);
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (isScriptEnabled) {
+            float mouseX = Input.GetAxis("Mouse X") * SaveManager.playerSettings.mouseSensitivity * Time.deltaTime * 20;
+            float mouseY = Input.GetAxis("Mouse Y") * SaveManager.playerSettings.mouseSensitivity * Time.deltaTime * 20;
 
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
@@ -44,23 +28,16 @@ public class MouseLook : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }
     }
-    public void AdjustSpeed(float newSpeed)
-    {
-        mouseSensitivity = newSpeed * 20;
-    }
 
     //manages lock states and script enabling 
-    private void ToggleScriptEnabledState()
-    {
+    void ToggleScriptEnabledState() {
         isScriptEnabled = !isScriptEnabled;
 
-        if (isScriptEnabled)
-        {
+        if (isScriptEnabled) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        else
-        {
+        else {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

@@ -1948,6 +1948,7 @@ GameObject:
   - component: {fileID: 627148425}
   - component: {fileID: 627148424}
   - component: {fileID: 627148427}
+  - component: {fileID: 627148428}
   m_Layer: 5
   m_Name: PauseMenuOptions
   m_TagString: Untagged
@@ -2031,6 +2032,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSounds: {fileID: 24100000, guid: 1d128119b784e6a4083162518eb48f22, type: 2}
   musicSounds: {fileID: 24100000, guid: 82038a556d43acc4bb5820656333d943, type: 2}
+--- !u!114 &627148428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627148423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a4f24bcd243e91ebdc720ea7e5fab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivitySlider: {fileID: 1703461814}
 --- !u!1 &644399819
 GameObject:
   m_ObjectHideFlags: 0
@@ -8311,17 +8325,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4091390258416098302, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
   m_PrefabInstance: {fileID: 898239043}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &898239045 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4163093755655241137, guid: 9ede6f602755f33cabe592bd497f277f, type: 3}
-  m_PrefabInstance: {fileID: 898239043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898239044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82c15bece90fa4f7293f7ed27c7fe3f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &898724248
 GameObject:
   m_ObjectHideFlags: 0
@@ -8813,7 +8816,6 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 266618978}
   optionsMenuUI: {fileID: 627148423}
   mouseLookScriptObject: {fileID: 898239044}
-  mouseSensitivitySlider: {fileID: 1703461814}
 --- !u!1 &995011835
 GameObject:
   m_ObjectHideFlags: 0
@@ -9527,6 +9529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1257873199}
   - component: {fileID: 1257873198}
+  - component: {fileID: 1257873200}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -9572,6 +9575,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257873200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257873197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e332f743a5792ce99e2b3dd0ad2b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1297227128
 GameObject:
   m_ObjectHideFlags: 0
@@ -11431,19 +11446,7 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 898239045}
-        m_TargetAssemblyTypeName: MouseLook, Assembly-CSharp
-        m_MethodName: AdjustSpeed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1784222996
 GameObject:
   m_ObjectHideFlags: 0
@@ -12172,18 +12175,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 991273184}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: SaveSettings
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

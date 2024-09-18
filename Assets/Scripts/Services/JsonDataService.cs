@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class JsonDataService : IDataService {
     public bool SaveData<T>(string relativePath, T data) {
-        string path = Application.persistentDataPath + relativePath;
+        string path = Path.Combine(Application.persistentDataPath, relativePath);
         
         try {
             if(File.Exists(path)) {
-                Debug.Log("Data exists. Deleting old file and writing a new one.");
+                // Debug.Log("Data exists. Deleting old file and writing a new one.");
                 File.Delete(path);
+            }
+            else {
+                // Debug.LogError("Data file does not exist. Creating a new one.");
             }
 
             using FileStream stream = File.Create(path);
@@ -25,7 +28,7 @@ public class JsonDataService : IDataService {
     }
 
     public T LoadData<T>(string relativePath) {
-        string path = Application.persistentDataPath + relativePath;
+        string path = Path.Combine(Application.persistentDataPath, relativePath);
         
         if(!File.Exists(path)) {
             Debug.LogError($"Cannot load file at {path}. File does not exist!");
