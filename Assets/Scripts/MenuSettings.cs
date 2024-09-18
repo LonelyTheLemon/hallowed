@@ -22,12 +22,12 @@ public class PauseMenuSettings : MonoBehaviour {
     }
     
     void UpdateGameVolume() {
-        audioMixer.SetFloat("Game", gameVolumeSlider.value);
+        audioMixer.SetFloat("Game", Mathf.Log10(gameVolumeSlider.value) * 20f);
         SaveManager.playerSettings.gameVolume = gameVolumeSlider.value;
     }
     
     void UpdateMusicVolume() {
-        audioMixer.SetFloat("Music", musicVolumeSlider.value);
+        audioMixer.SetFloat("Music", Mathf.Log10(musicVolumeSlider.value) * 20f);
         SaveManager.playerSettings.musicVolume = musicVolumeSlider.value;
     }
 
