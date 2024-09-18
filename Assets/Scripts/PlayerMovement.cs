@@ -5,7 +5,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CharacterController controller;
 
     [SerializeField] float gravity = -75f;
-    [SerializeField] float jumpHeight = 3f;
     [SerializeField] float normalHeight, crouchHeight;
 
     // Variables for ground check
@@ -24,9 +23,6 @@ public class PlayerMovement : MonoBehaviour
     
     float walkStepInterval = 1f;
     float walkStepProgress = 0;
-
-    [SerializeField] float walkPitch = 1f;   // Normal walking pitch
-    [SerializeField] float sprintPitch = 1.5f; // Sprinting pitch
 
     Vector3 velocity;
     bool isGrounded;
