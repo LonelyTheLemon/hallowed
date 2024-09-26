@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Grimoire;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : MonoBehaviour
+{
     public GameObject mouseLookScriptObject;
+    public GameObject toolTipPrompt; // Reference to the ToolTipPrompt object
     
     [SerializeField] CanvasGroup menu;
     [SerializeField] CanvasGroup[] settingsMenu;
@@ -14,12 +16,12 @@ public class PauseMenu : MonoBehaviour {
         Settings,
         Credits,
     }
-    
+
     MenuLevel currentMenu = MenuLevel.None;
     [SerializeField] bool isGame = false;
 
     KeyCode pauseKey = KeyCode.None;
-    
+
     void Start() {
         if(isGame) {
             menu.gameObject.SetActive(true);
@@ -43,23 +45,25 @@ public class PauseMenu : MonoBehaviour {
     }
 
     void Update() {
-        if(Input.GetKeyDown(pauseKey)) {
+        if (Input.GetKeyDown(pauseKey)) {
             SwitchMenu();
         }
     }
-    
+
     public void SwitchMenu() {
         switch (currentMenu) {
             case MenuLevel.None:
                 menu.Show();
                 DisableMouseLookScript();
                 currentMenu++;
+                ToggleToolTipPrompt(false); // Disable tooltip when menu is shown
                 break;
             case MenuLevel.Main:
                 if(isGame) {
                     menu.Hide();
                     EnableMouseLookScript();
                     currentMenu--;
+                    ToggleToolTipPrompt(true); // Enable tooltip when menu is hidden
                 }
                 break;
             case MenuLevel.Settings:
@@ -74,22 +78,24 @@ public class PauseMenu : MonoBehaviour {
                 break;
         }
     }
-    
+
     public void ShowMenuSettings() {
         currentMenu = MenuLevel.Settings;
         menu.Hide();
         settingsMenu[0].Show();
+        ToggleToolTipPrompt(false); // Disable tooltip when in settings
     }
 
     public void ShowMenuCredits() {
         currentMenu = MenuLevel.Credits;
         settingsMenu[0].Hide();
         settingsMenu[1].Show();
+        ToggleToolTipPrompt(false); // Disable tooltip when in credits
     }
 
     public void Play() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    } 
+    }
 
     public void LoadMenu() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
@@ -113,6 +119,13 @@ public class PauseMenu : MonoBehaviour {
         if (mouseLookScript != null) {
             mouseLookScript.enabled = false;
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    // Method to toggle the ToolTipPrompt
+    void ToggleToolTipPrompt(bool isActive) {
+        if (toolTipPrompt != null) {
+            toolTipPrompt.SetActive(isActive);
         }
     }
 }

@@ -8797,6 +8797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseLookScriptObject: {fileID: 898239044}
+  toolTipPrompt: {fileID: 1784222996}
   menu: {fileID: 266618982}
   settingsMenu:
   - {fileID: 627148429}
