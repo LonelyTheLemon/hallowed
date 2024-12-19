@@ -18119,6 +18119,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6844956491104706126, guid: 3ce9c16503a9e3aa1b0a84596d5400e8, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8630628396725900986, guid: 3ce9c16503a9e3aa1b0a84596d5400e8, type: 3}
       propertyPath: m_Layer
       value: 9
