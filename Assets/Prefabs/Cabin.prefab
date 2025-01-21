@@ -606,8 +606,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1409857626365666235, guid: 1f1d0572628a6dab7b4e7b9a93b18b8c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1426627737951294408}
   m_SourcePrefab: {fileID: 100100000, guid: 1f1d0572628a6dab7b4e7b9a93b18b8c, type: 3}
+--- !u!1 &7090540390354453177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1409857626365666235, guid: 1f1d0572628a6dab7b4e7b9a93b18b8c, type: 3}
+  m_PrefabInstance: {fileID: 8211886074856055042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1426627737951294408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090540390354453177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5ecffdcb96c6775a86e801fb88e406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: '[E] Sleep'
 --- !u!4 &7578845991757109251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1791028188828596481, guid: 1f1d0572628a6dab7b4e7b9a93b18b8c, type: 3}
