@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a91e430f484b50e67991892e799364c8, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d671fc84b10f2cd2898844579b82beb, type: 3}
       propertyPath: m_Name
-      value: Cabin
+      value: Cabin (old)
       objectReference: {fileID: 0}
     - target: {fileID: 3613213183128057820, guid: 8d671fc84b10f2cd2898844579b82beb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,6 +311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: Door
+  OpenSound: {fileID: 0}
+  LockedSound: {fileID: 0}
 --- !u!64 &3531598281147373004
 MeshCollider:
   m_ObjectHideFlags: 0
