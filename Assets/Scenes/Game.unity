@@ -12462,7 +12462,7 @@ GameObject:
   - component: {fileID: 2071925062}
   - component: {fileID: 2071925061}
   m_Layer: 9
-  m_Name: Cube
+  m_Name: Cabin Audio Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
