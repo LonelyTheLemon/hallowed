@@ -14113,7 +14113,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5226402
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -14728,9 +14728,13 @@ MonoBehaviour:
   - {fileID: 1081087927}
   - {fileID: 697765039}
   - {fileID: 861454818}
+  - {fileID: 203382184}
   sleepEnableSoundObjects:
   - {fileID: 1053350470}
   - {fileID: 1647479870}
+  sleepDisableParticleObjects:
+  - {fileID: 1765447044}
+  - {fileID: 374247799}
 --- !u!4 &1257873199
 Transform:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
         disableAmbientNight();
         enableAmbientDay();
         setLightDay();
+        disableParticleNight();
     }
 
     // TODO: Move into proper light manager
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour {
     
     [SerializeField] Transform[] sleepDisableSoundObjects;
     [SerializeField] Transform[] sleepEnableSoundObjects;
+    [SerializeField] Transform[] sleepDisableParticleObjects;
     
     void disableAmbientNight() {
         foreach(Transform ambientObject in sleepDisableSoundObjects) {
@@ -49,6 +51,13 @@ public class GameManager : MonoBehaviour {
     void enableAmbientDay() {
         foreach(Transform ambientObject in sleepEnableSoundObjects) {
             ambientObject.gameObject.SetActive(true);
+        }
+    }
+
+
+    void disableParticleNight() {
+        foreach (Transform ambientObject in sleepDisableParticleObjects) {
+            ambientObject.gameObject.SetActive(false);
         }
     }
 }
