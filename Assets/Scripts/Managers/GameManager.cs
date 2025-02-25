@@ -10,11 +10,12 @@ public class GameManager : MonoBehaviour {
     
     void setAfterSleepAmbience() {
         disableAmbientNight();
+        enableAmbientDay();
         setLightDay();
     }
 
     // TODO: Move into proper light manager
-    Color nightColor = new Color(3 / 255, 3 / 255, 5 / 255, 1);
+    Color nightColor = new Color(3 / 255f, 3 / 255f, 5 / 255f, 1);
     Color dayColor = new Color(1, 1, 1, 1);
     [SerializeField] Transform[] lightObjects;
 
@@ -37,10 +38,17 @@ public class GameManager : MonoBehaviour {
     }
     
     [SerializeField] Transform[] sleepDisableSoundObjects;
+    [SerializeField] Transform[] sleepEnableSoundObjects;
     
     void disableAmbientNight() {
         foreach(Transform ambientObject in sleepDisableSoundObjects) {
             ambientObject.gameObject.SetActive(false);
+        }
+    }
+    
+    void enableAmbientDay() {
+        foreach(Transform ambientObject in sleepEnableSoundObjects) {
+            ambientObject.gameObject.SetActive(true);
         }
     }
 }
